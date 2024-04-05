@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import redditIcon from "@/assets/redditLogo.svg";
+import redditIconOutline from "@/assets/reddit-logo-white.svg";
 import { BeakerIcon } from "@heroicons/react/solid";
 import { StarIcon } from "@heroicons/react/outline";
 import {
@@ -10,6 +11,7 @@ import {
   PlusIcon,
   SparklesIcon,
   VideoCameraIcon,
+  SpeakerphoneIcon
 } from "@heroicons/react/outline";
 import {
   ChevronDownIcon,
@@ -31,7 +33,7 @@ function Header() {
         <Image objectFit="contain" src={redditIcon} alt="img" layout="fill" />
       </div>
 
-      <div className="flex items-center mx-1">
+      <div className="flex items-center mx-1 cursor-pointer">
         <h6 className="text-2xl text">Reddit</h6>
       </div>
 
@@ -52,6 +54,8 @@ function Header() {
         <button type="submit" hidden></button>
       </form>
 
+      {/* Navgatoinal buttons */}
+
       <div className="hidden text-zinc-200 space-x-2 items-center mx-2 lg:inline-flex ">
         <SparklesIcon className="iconstyle" />
         <GlobeIcon className="iconstyle" />
@@ -60,10 +64,25 @@ function Header() {
         <ChatIcon className="iconstyle" />
         <BellIcon className="iconstyle" />
         <PlusIcon className="iconstyle" />
-        <SparklesIcon className="iconstyle" />
+        <SpeakerphoneIcon className="iconstyle" />
       </div>
       <div className="ml-5 flex items-center lg:hidden">
         <MenuIcon className="iconstyle" />
+      </div>
+
+      {/* Sign in and Sign out */}
+      <div className="hidden lg:flex items-center space-x-2 border border-zinc-800 rounded-sm shadow shadow-zinc-800 cursor-pointer">
+        <div className="flex mr-2 ">
+          <div className="relative h-5 w-10 flex-shrink-0 ">
+            <Image
+              objectFit="contain"
+              src={redditIconOutline}
+              alt="img"
+              layout="fill"
+            />
+          </div>
+          <p className="text-zinc-200 text-md">Sign In</p>
+        </div>
       </div>
     </div>
   );
