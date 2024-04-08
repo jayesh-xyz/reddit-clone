@@ -25,7 +25,7 @@ function Header() {
   return (
     <div
       id="header"
-      className="sticky top-0 z-10 flex px-3 py-2 drop-shadow-sm "
+      className=" sticky top-0 z-10 flex px-3 py-2 shadow-md shadow-zinc-950 "
     >
       <div className="flex cursor-pointer">
         <div className=" relative h-10 w-10 flex-shrink-0">

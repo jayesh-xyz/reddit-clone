@@ -37,3 +37,7 @@ body {
         @apply h-9 w-6 lg:w-9 cursor-pointer rounded-sm lg:p-1 lg:hover:bg-zinc-900
     }
 }
+
+#global-page-color {
+    background-color: rgb(4,4,4);
+}
