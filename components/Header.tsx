@@ -10,6 +10,7 @@ import {
   SparklesIcon,
   VideoCameraIcon,
   SpeakerphoneIcon,
+  LogoutIcon,
 } from "@heroicons/react/outline";
 import {
   ChevronDownIcon,
@@ -44,7 +45,7 @@ function Header() {
       </div>
 
       {/* Search bar div */}
-      <form className="flex flex-1 items-center space-x-2 px-2 border border-gray-700 rounded-sm ">
+      <form className="flex flex-1 items-center space-x-2 px-2 border border-zinc-700 rounded-sm ">
         <SearchIcon className="h-6 w-6 text-gray-400" />
         <input
           className="flex-1 rounded-sm bg-transparent outline-none"
@@ -72,12 +73,7 @@ function Header() {
       </div>
       {/* Sign in and Sign out */}
       {session ? (
-        <div
-          onClick={() => {
-            signOut();
-          }}
-          className="hidden bg-zinc-950 lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-900"
-        >
+        <div className="hidden bg-black lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-950">
           <div className="flex mr-2 items-center">
             <div className="relative h-5 w-10 flex-shrink-0  ">
               <Image
@@ -88,11 +84,18 @@ function Header() {
               />
             </div>
             <div className="flex-1 text-xs">
-                {/* truncate ads ... for long strings */}
-                <p className="truncate ">{session?.user?.name}</p>
+              {/* truncate ads ... for long strings */}
+              <p className="truncate ">{session?.user?.name}</p>
               <p className="text-zinc-400 text-md">wassup</p>
             </div>
-            <ChevronDownIcon className="ml-1 h-5 flex-shrink-0 "/>
+            <div
+              onClick={() => {
+                signOut();
+              }}
+              className="p-1 relative z-10 ml-2 rounded-sm hover:bg-zinc-700"
+            >
+              <LogoutIcon className=" h-5 flex-shrink-0 " />
+            </div>
           </div>
         </div>
       ) : (
