@@ -1,32 +1,31 @@
-import React from 'react'
-import redditIcon from "@/pages/assets/redditLogo.svg"
-import Image from 'next/image';
+import React from "react";
+import redditIcon from "@/pages/assets/redditLogo.svg";
+import Image from "next/image";
 import redditIconOutline from "@/pages/assets/reddit-logo-white.svg";
 import {
-    BellIcon,
-    ChatIcon,
-    GlobeIcon,
-    PlusIcon,
-    SparklesIcon,
-    VideoCameraIcon,
-    SpeakerphoneIcon,
-  } from "@heroicons/react/outline";
-  import {
-    ChevronDownIcon,
-    HomeIcon,
-    SearchIcon,
-    MenuIcon,
-  } from "@heroicons/react/solid";
-
-//   import { signIn } from "next-auth/react";
+  BellIcon,
+  ChatIcon,
+  GlobeIcon,
+  PlusIcon,
+  SparklesIcon,
+  VideoCameraIcon,
+  SpeakerphoneIcon,
+} from "@heroicons/react/outline";
+import {
+  ChevronDownIcon,
+  HomeIcon,
+  SearchIcon,
+  MenuIcon,
+} from "@heroicons/react/solid";
+import { signIn } from "next-auth/react";
 
 function Header() {
   return (
     <div
-    id="header"
-    className="sticky top-0 z-10 flex px-3 py-2 drop-shadow-sm "
-  >
-    <div className="flex cursor-pointer">
+      id="header"
+      className="sticky top-0 z-10 flex px-3 py-2 drop-shadow-sm "
+    >
+      <div className="flex cursor-pointer">
         <div className=" relative h-10 w-10 flex-shrink-0">
           <Image objectFit="contain" src={redditIcon} alt="img" layout="fill" />
         </div>
@@ -37,9 +36,9 @@ function Header() {
       </div>
 
       <div className="flex items-center mx-7 xl:min-w-[300px]">
-        <HomeIcon className='h-5 w-5'/>
+        <HomeIcon className="h-5 w-5" />
         <p className="ml-2 hidden flex-1 lg:inline">Home</p>
-        <ChevronDownIcon className='h-5 w-5' />
+        <ChevronDownIcon className="h-5 w-5" />
       </div>
 
       {/* Search bar div */}
@@ -70,7 +69,12 @@ function Header() {
       </div>
 
       {/* Sign in and Sign out */}
-      <div className="hidden bg-zinc-950 lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-900">
+      <div
+        onClick={() => {
+          signIn();
+        }}
+        className="hidden bg-zinc-950 lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-900"
+      >
         <div className="flex mr-2 ">
           <div className="relative h-5 w-10 flex-shrink-0 ">
             <Image
@@ -83,9 +87,8 @@ function Header() {
           <p className="text-zinc-200 text-md">Sign In</p>
         </div>
       </div>
-
-  </div>
-  )
+    </div>
+  );
 }
 
 export default Header;
