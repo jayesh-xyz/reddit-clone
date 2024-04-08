@@ -11,7 +11,7 @@ import {
   PlusIcon,
   SparklesIcon,
   VideoCameraIcon,
-  SpeakerphoneIcon
+  SpeakerphoneIcon,
 } from "@heroicons/react/outline";
 import {
   ChevronDownIcon,
@@ -29,12 +29,14 @@ function Header() {
       id="header"
       className="sticky top-0 z-10 flex px-3 py-2 drop-shadow-sm "
     >
-      <div className=" relative h-10 w-10 flex-shrink-0 cursor-pointer">
-        <Image objectFit="contain" src={redditIcon} alt="img" layout="fill" />
-      </div>
+      <div className="flex cursor-pointer">
+        <div className=" relative h-10 w-10 flex-shrink-0">
+          <Image objectFit="contain" src={redditIcon} alt="img" layout="fill" />
+        </div>
 
-      <div className="flex items-center mx-1 cursor-pointer">
-        <h6 className="text-2xl text">Reddit</h6>
+        <div className="flex items-center mx-1">
+          <h6 className="text-2xl text">Reddit</h6>
+        </div>
       </div>
 
       <div className="flex items-center mx-7 xl:min-w-[300px]">
