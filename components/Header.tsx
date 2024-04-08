@@ -17,9 +17,11 @@ import {
   SearchIcon,
   MenuIcon,
 } from "@heroicons/react/solid";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Header() {
+  const { data: session } = useSession();
+
   return (
     <div
       id="header"
@@ -49,6 +51,7 @@ function Header() {
           type="text"
           placeholder="Search "
         />
+        {/* hidden makes the button hidden, hence you have to press enter to initiate the request */}
         <button type="submit" hidden></button>
       </form>
 
@@ -67,26 +70,51 @@ function Header() {
       <div className="ml-5 flex items-center lg:hidden">
         <MenuIcon className="iconstyle" />
       </div>
-
       {/* Sign in and Sign out */}
-      <div
-        onClick={() => {
-          signIn();
-        }}
-        className="hidden bg-zinc-950 lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-900"
-      >
-        <div className="flex mr-2 ">
-          <div className="relative h-5 w-10 flex-shrink-0 ">
-            <Image
-              objectFit="contain"
-              src={redditIconOutline}
-              alt="img"
-              layout="fill"
-            />
+      {session ? (
+        <div
+          onClick={() => {
+            signOut();
+          }}
+          className="hidden bg-zinc-950 lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-900"
+        >
+          <div className="flex mr-2 items-center">
+            <div className="relative h-5 w-10 flex-shrink-0  ">
+              <Image
+                objectFit="contain"
+                src={redditIconOutline}
+                alt="img"
+                layout="fill"
+              />
+            </div>
+            <div className="flex-1 text-xs">
+                {/* truncate ads ... for long strings */}
+                <p className="truncate ">{session?.user?.name}</p>
+              <p className="text-zinc-400 text-md">wassup</p>
+            </div>
+            <ChevronDownIcon className="ml-1 h-5 flex-shrink-0 "/>
           </div>
-          <p className="text-zinc-200 text-md">Sign In</p>
         </div>
-      </div>
+      ) : (
+        <div
+          onClick={() => {
+            signIn();
+          }}
+          className="hidden bg-zinc-950 lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-900"
+        >
+          <div className="flex mr-2 ">
+            <div className="relative h-5 w-10 flex-shrink-0 ">
+              <Image
+                objectFit="contain"
+                src={redditIconOutline}
+                alt="img"
+                layout="fill"
+              />
+            </div>
+            <p className="text-zinc-200 text-md">Sign In</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
