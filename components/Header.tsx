@@ -1,35 +1,32 @@
-import Image from "next/image";
-import React from "react";
-import redditIcon from "@/assets/redditLogo.svg";
-import redditIconOutline from "@/assets/reddit-logo-white.svg";
-import { BeakerIcon } from "@heroicons/react/solid";
-import { StarIcon } from "@heroicons/react/outline";
+import React from 'react'
+import redditIcon from "@/pages/assets/redditLogo.svg"
+import Image from 'next/image';
+import redditIconOutline from "@/pages/assets/reddit-logo-white.svg";
 import {
-  BellIcon,
-  ChatIcon,
-  GlobeIcon,
-  PlusIcon,
-  SparklesIcon,
-  VideoCameraIcon,
-  SpeakerphoneIcon,
-} from "@heroicons/react/outline";
-import {
-  ChevronDownIcon,
-  HomeIcon,
-  SearchIcon,
-  MenuIcon,
-} from "@heroicons/react/solid";
+    BellIcon,
+    ChatIcon,
+    GlobeIcon,
+    PlusIcon,
+    SparklesIcon,
+    VideoCameraIcon,
+    SpeakerphoneIcon,
+  } from "@heroicons/react/outline";
+  import {
+    ChevronDownIcon,
+    HomeIcon,
+    SearchIcon,
+    MenuIcon,
+  } from "@heroicons/react/solid";
 
-import "./header.css";
+//   import { signIn } from "next-auth/react";
 
 function Header() {
   return (
-    //Header starts here ->
     <div
-      id="header"
-      className="sticky top-0 z-10 flex px-3 py-2 drop-shadow-sm "
-    >
-      <div className="flex cursor-pointer">
+    id="header"
+    className="sticky top-0 z-10 flex px-3 py-2 drop-shadow-sm "
+  >
+    <div className="flex cursor-pointer">
         <div className=" relative h-10 w-10 flex-shrink-0">
           <Image objectFit="contain" src={redditIcon} alt="img" layout="fill" />
         </div>
@@ -40,9 +37,9 @@ function Header() {
       </div>
 
       <div className="flex items-center mx-7 xl:min-w-[300px]">
-        <HomeIcon className="h-5 w-5" />
+        <HomeIcon className='h-5 w-5'/>
         <p className="ml-2 hidden flex-1 lg:inline">Home</p>
-        <ChevronDownIcon className="h-5 w-5" />
+        <ChevronDownIcon className='h-5 w-5' />
       </div>
 
       {/* Search bar div */}
@@ -86,8 +83,9 @@ function Header() {
           <p className="text-zinc-200 text-md">Sign In</p>
         </div>
       </div>
-    </div>
-  );
+
+  </div>
+  )
 }
 
 export default Header;
