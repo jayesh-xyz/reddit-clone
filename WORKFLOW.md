@@ -2,4 +2,5 @@
 2. implemented the Sign In with reddit feature using NextAuth and reddit client api.
 3. Created a realtional database model [users, posts, comments, subreddits...], using supabase.
 4. Used Stepzen(by IBM) to implement graphQl in a very GUI fashion.
-5. used Apollo client to fetch graphQL from the frontend 
+5. used Apollo client to fetch graphQL from the frontend.
+6. wrapped the entire app with <ApolloProvider> 
