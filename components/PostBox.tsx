@@ -46,6 +46,8 @@ function PostBox() {
         <LinkIcon className=" h-10 w-10 p-1.5 text-zinc-300 hover:cursor-pointer hover:bg-zinc-900 hover:rounded-sm" />
       </div>
 
+      {/* watch monitors the postTitle input and on any change event it renders the below */}
+
       {!!watch("postTitle") && (
         <div className="flex flex-col py-2">
           {/* Body */}
@@ -73,12 +75,27 @@ function PostBox() {
               <p className="min-w-[90px] ">Image URl : </p>
               <input
                 className="m-2 flex-1 bg-zinc-950 border border-zinc-800 p-2 outline-none"
-                {...register("postImage")}
+                {...register("postImage", { required: true })}
                 type="text"
                 placeholder="Optional..."
               />
             </div>
           )}
+          {/* Errors */}
+          {Object.keys(errors).length > 0 && (
+            <div>
+              {errors.postTitle?.type === "required" && (
+                <p>A Post Title is required</p>
+              )}
+            </div>
+          )}
+          <div className="flex justify-center items-center">
+            {!!watch("postTitle") && (
+              <button type="submit" className="border border-zinc-800 bg-sky-800 rounded-full p-2 mt-3 w-[250px] hover:bg-sky-700 hover:shadow-sm hover:shadow-zinc-900r">
+                Create Post
+              </button>
+            )}
+          </div>
         </div>
       )}
     </form>
