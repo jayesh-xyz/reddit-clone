@@ -7,3 +7,4 @@
 7. started PostBox component
 8. added the avatar feature with dicebear open source library which automatically generates avatar.
 9. added the create post tab.
+10. added the avatar feature with session provider.

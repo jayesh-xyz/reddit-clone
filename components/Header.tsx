@@ -19,9 +19,11 @@ import {
   MenuIcon,
 } from "@heroicons/react/solid";
 import { signIn, signOut, useSession } from "next-auth/react";
+import defaultimage from "@/pages/assets/reddit-logo-white.svg"
 
 function Header() {
-  const { data: session } = useSession();
+    const { data: session } = useSession();
+    const avatarUrl = `https://api.dicebear.com/8.x/bottts/svg?seed=${session?.user?.name}`;
 
   return (
     <div
@@ -75,13 +77,8 @@ function Header() {
       {session ? (
         <div className="hidden bg-black lg:flex items-center space-x-2 border border-zinc-700 rounded-sm shadow-sm shadow-zinc-900 cursor-pointer hover:bg-zinc-950">
           <div className="flex mr-2 items-center">
-            <div className="relative h-5 w-10 flex-shrink-0  ">
-              <Image
-                objectFit="contain"
-                src={redditIconOutline}
-                alt="img"
-                layout="fill"
-              />
+            <div className="relative h-10 w-10 flex-shrink-0  ">
+            <Image className="p-1" layout="fill" src={session ? avatarUrl : defaultimage} alt="" />
             </div>
             <div className="flex-1 text-xs">
               {/* truncate ads ... for long strings */}
