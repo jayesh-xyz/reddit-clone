@@ -48,7 +48,7 @@ function Header() {
       <form className="flex flex-1 items-center space-x-2 px-2 border border-zinc-700 rounded-sm ">
         <SearchIcon className="h-6 w-6 text-gray-400" />
         <input
-          className="flex-1 rounded-sm bg-transparent outline-none"
+          className="flex-1 rounded-sm bg-transparent placeholder-zinc-400 outline-none"
           type="text"
           placeholder="Search "
         />
