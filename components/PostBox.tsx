@@ -22,8 +22,11 @@ function PostBox() {
     formState: { errors },
   } = useForm<FormData>();
   const { data: session } = useSession();
+  const onSubmit = handleSubmit(async(formData) => {
+    console.log(formData)
+  })
   return (
-    <form className="sticky top-20 z-50 rounded-sm border  border-zinc-900 p-2 sm:mx-32 shadow-md shadow-zinc-950 ">
+    <form onSubmit={onSubmit} className="sticky top-20 z-50 rounded-sm border  border-zinc-900 p-2 sm:mx-32 shadow-md shadow-zinc-950 ">
       <div className="flex justify-center items-center space-x-2 px-0.5 ">
         <Avatar />
         <input
@@ -91,7 +94,8 @@ function PostBox() {
           )}
           <div className="flex justify-center items-center">
             {!!watch("postTitle") && (
-              <button type="submit" className="border border-zinc-800 bg-sky-800 rounded-full p-2 mt-3 w-[250px] hover:bg-sky-700 hover:shadow-sm hover:shadow-zinc-900r">
+              <button
+              type="submit" className="border border-zinc-800 bg-sky-800 rounded-full p-2 mt-3 w-[250px] hover:bg-sky-700 hover:shadow-sm hover:shadow-zinc-900r">
                 Create Post
               </button>
             )}

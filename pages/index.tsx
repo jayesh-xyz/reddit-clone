@@ -4,13 +4,12 @@ import Head from "next/head";
 
 export default function Home() {
   return (
-    <main className="  min-h-screen">
+    <main className="my-7 mx-auto max-w-6xl ">
       <Head>
         <title>Reddit-Clone</title>
       </Head>
-      {/* Postbox */}
       <PostBox />
-      <div>
+      <div className="flex">
         {/* Feed */}
         
       </div>
